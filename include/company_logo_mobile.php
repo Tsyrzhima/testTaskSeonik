@@ -1,1 +1,1 @@
-<img src="/include/logo_mobile.png"  srcset="/include/logo_mobile_retina.png" />
+<img src="/include/new_logo_mobile.png"  srcset="/include/new_logo_mobile_retina.png" />

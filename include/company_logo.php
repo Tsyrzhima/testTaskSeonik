@@ -1,1 +1,1 @@
-<img src="/include/logo.png"  srcset="/include/logo_retina.png" />
+<img src="/include/new_logo.png"  srcset="/include/new_logo_retina.png" />
