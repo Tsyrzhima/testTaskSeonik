@@ -168,7 +168,7 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
                             <div class="d-flex justify-content-between align-items-center">
                                 <?if(!$arParams["HIDE_LINK_WHEN_NO_DETAIL"] || ($arItem["DETAIL_TEXT"] && $arResult["USER_HAVE_ACCESS"])):?>
                                     <div class="news-list-more">
-                                        <a class="btn btn-primary btn-sm" href="<?echo $arItem["DETAIL_PAGE_URL"]?>"><?echo GetMessage("CT_BNL_GOTO_DETAIL")?></a>
+                                        <a class="btn btn-danger btn-sm" href="<?echo $arItem["DETAIL_PAGE_URL"]?>">Перейти</a>
                                     </div>
                                 <?endif;?>
                                 <? if ($arParams["USE_SHARE"] == "Y")
