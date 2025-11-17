@@ -205,6 +205,37 @@ $curPage = $APPLICATION->GetCurPage(true);
 							false,
 							Array('HIDE_ICONS' => 'Y')
 						);?>
+
+                        <?php
+                        $navChain = $APPLICATION->GetNavChain(false, true); // true = получить массив
+                        if (!empty($navChain)) {
+                            $breadcrumbs = [];
+                            foreach ($navChain as $index => $item) {
+                                $title = $item['TITLE'];
+                                $link = $item['LINK'] ?? '';
+
+                                if ($index === 0 && $link === "/") {
+                                    $title = "Интернет-магазин";
+                                }
+
+                                $breadcrumbs[] = [
+                                    "@type" => "ListItem",
+                                    "position" => $index + 1,
+                                    "name" => $title,
+                                    "item" => $link ? "https://".$_SERVER['HTTP_HOST'].$link : ""
+                                ];
+                            }
+
+                            echo '<script type="application/ld+json">'
+                                . json_encode([
+                                    "@context" => "https://schema.org",
+                                    "@type" => "BreadcrumbList",
+                                    "itemListElement" => $breadcrumbs
+                                ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT)
+                                . '</script>';
+                        }
+                        ?>
+
 					</div>
 				</div>
 				<h1 id="pagetitle"><?$APPLICATION->ShowTitle(false);?></h1>
